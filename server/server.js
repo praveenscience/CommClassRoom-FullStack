@@ -4,11 +4,11 @@ const express = require("express");
 const app = express();
 // Configure a port address.
 const port = 5000;
+// Import routes.
+const root = require("./routes/root");
 
-// Create a Get Request handler for /.
-app.get("/", (req, res) => {
-  res.json("Welcome to Community Classroom!");
-});
+// Add the routes as middleware - route handler.
+app.use("/", root);
 
 // Make the app listen to a port.
 app.listen(port, () => {
