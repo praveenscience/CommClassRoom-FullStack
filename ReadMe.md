@@ -1,15 +1,23 @@
 # Community Class Room
 
 ## Intro
+Community Classroom Dashboard 
 
 ## Motivation
 
 ## Tech Stack Used
+* MySQL or PostgreSQL
+* React
+* Express
+* Node JS
 
 ### PreRequisites
 
 ### Installation Instructions
-
+* Fork project
+* `cd` to the project folder
+* Clone project
+  * ```bash git clone https://github.com/username/CommClassRoom-FullStack.git```  
 ## Features
 
 - Marketing Public Pages
