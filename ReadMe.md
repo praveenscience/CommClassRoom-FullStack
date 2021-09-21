@@ -17,7 +17,7 @@ Community Classroom Dashboard
 * Fork project
 * `cd` to the project folder
 * Clone project
-  * ```bash git clone https://github.com/username/CommClassRoom-FullStack.git```  
+  * `git clone https://github.com/username/CommClassRoom-FullStack.git`  
 ## Features
 
 - Marketing Public Pages
