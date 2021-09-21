@@ -2,9 +2,10 @@
   "Praveen": {
     "Name": "Praveen Kumar Purushothaman",
     "Password": "Praveen",
-    "Type": "Admin",
+    "Role": "Admin",
     "Verified": true,
     "Personal": {
+      "Gender": "Male",
       "Email": "commclassroom@praveen.science",
       "Phone": "+447894561230"
     },
@@ -13,9 +14,10 @@
   "Rohan": {
     "Name": "Rohan Kulkarni",
     "Password": "Rohan",
-    "Type": "Student",
+    "Role": "Student",
     "Verified": false,
     "Personal": {
+      "Gender": "Male",
       "Email": "rohan@gmail.com",
       "Phone": "+919876543210"
     },
