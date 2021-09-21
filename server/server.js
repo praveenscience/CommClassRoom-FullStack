@@ -7,6 +7,10 @@ const port = 5000;
 // Import routes.
 const root = require("./routes/root");
 
+// Add some custom middleware.
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 // Add the routes as middleware - route handler.
 app.use("/", root);
 
