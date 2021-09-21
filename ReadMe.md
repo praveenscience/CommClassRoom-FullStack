@@ -12,6 +12,10 @@ Community Classroom Dashboard
 * Node JS
 
 ### PreRequisites
+- HTML
+- CSS
+- JavaScript
+- Git
 
 ### Installation Instructions
 * Fork project
