@@ -2,8 +2,9 @@
 const Users = require("../constants/Users.json");
 
 const CheckUserNamePassword = (Username, Password) => {
+  // Check if the user exists or not.
   if (typeof Users[Username] !== "undefined") {
-    // User doesn't exist.
+    // User exists.
     // Check if password is right or wrong.
     if (Users[Username].Password === Password) {
       // Correct Username and Password.
@@ -44,7 +45,7 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
     CreatedAt: new Date()
   };
   // Check if the user exists or not.
-  if (typeof Users[Username] !== "undefined") {
+  if (typeof Users[Username] === "undefined") {
     // User doesn't exist.
     // Add the new user to the data.
     Users[Username] = NewUser;
