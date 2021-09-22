@@ -48,6 +48,25 @@ app.post("/login", (req, res) => {
     });
   }
 });
+// Endpoint to register a new user.
+app.post("/register", (req, res) => {
+  const { Username, Password, Name, Email, Role } = req.body;
+  if (
+    typeof Username === "string" &&
+    typeof Password === "string" &&
+    typeof Name === "string" &&
+    typeof Email === "string" &&
+    typeof Role === "string"
+  ) {
+    // User input is right.
+  } else {
+    // User input is wrong.
+    res.status(400).json({
+      Error: "All five fields are mandatory and should be a string."
+    });
+  }
+});
+
 // Endpoint to logout a user.
 app.post("/logout", (req, res) => {
   CurrentUser = null;
