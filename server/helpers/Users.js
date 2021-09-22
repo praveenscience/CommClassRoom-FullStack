@@ -16,6 +16,34 @@ const CheckUserNamePassword = (Username, Password) => {
   }
 };
 
+const RegisterNewUser = (Username, Password, Name, Email) => {
+  // Create a Default user template.
+  const DefaultUser = {
+    Name,
+    Password,
+    Role: "Student",
+    Verified: false,
+    Personal: {
+      Gender: null,
+      Email,
+      Phone: null
+    },
+    Socials: {
+      Facebook: null,
+      Instagram: null,
+      Twitter: null,
+      LinkedIn: null,
+      GitHub: null,
+      StackOverflow: null,
+      WhatsApp: null,
+      Telegram: null,
+      Discord: null
+    },
+    CreatedAt: new Date()
+  };
+};
+
 module.exports = {
-  CheckUserNamePassword
+  CheckUserNamePassword,
+  RegisterNewUser
 };
