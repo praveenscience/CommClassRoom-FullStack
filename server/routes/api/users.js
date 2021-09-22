@@ -20,5 +20,18 @@ app.get("/", (req, res) => {
   res.json(AllUsers);
 });
 
+// Get one single user.
+app.get("/:Username", (req, res) => {
+  const Username = req.params.Username;
+  const User = AllUsers.find(user => user.Username === Username);
+  if (User) {
+    res.json(User);
+  } else {
+    res.status(404).json({
+      Error: "No such user exists."
+    });
+  }
+});
+
 // Export the Router.
 module.exports = app;
