@@ -9,6 +9,17 @@
       "Email": "commclassroom@praveen.science",
       "Phone": "+447894561230"
     },
+    "Socials": {
+      "Facebook": null,
+      "Instagram": null,
+      "Twitter": null,
+      "LinkedIn": null,
+      "GitHub": null,
+      "StackOverflow": null,
+      "WhatsApp": null,
+      "Telegram": null,
+      "Discord": null
+    },
     "CreatedAt": "2021-09-21T16:05:00.343Z"
   },
   "Rohan": {
@@ -20,6 +31,17 @@
       "Gender": "Male",
       "Email": "rohan@gmail.com",
       "Phone": "+919876543210"
+    },
+    "Socials": {
+      "Facebook": null,
+      "Instagram": null,
+      "Twitter": null,
+      "LinkedIn": null,
+      "GitHub": null,
+      "StackOverflow": null,
+      "WhatsApp": null,
+      "Telegram": null,
+      "Discord": null
     },
     "CreatedAt": "2021-09-21T16:05:00.343Z"
   }
