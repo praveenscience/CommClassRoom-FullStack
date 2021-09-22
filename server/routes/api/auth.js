@@ -48,5 +48,12 @@ app.post("/login", (req, res) => {
     });
   }
 });
+// Endpoint to logout a user.
+app.post("/logout", (req, res) => {
+  CurrentUser = null;
+  res.status(204).json({
+    Message: "User logged out successfully."
+  });
+});
 // Export the Router.
 module.exports = app;
