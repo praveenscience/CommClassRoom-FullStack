@@ -56,7 +56,10 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
   }
 };
 
+const ListAllUsers = () => Users;
+
 module.exports = {
   CheckUserNamePassword,
-  RegisterNewUser
+  RegisterNewUser,
+  ListAllUsers
 };
