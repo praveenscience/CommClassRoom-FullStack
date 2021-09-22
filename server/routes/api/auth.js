@@ -1,6 +1,9 @@
 // Import Express JS library.
 const express = require("express");
-const { CheckUserNamePassword } = require("../../helpers/Users");
+const {
+  CheckUserNamePassword,
+  RegisterNewUser
+} = require("../../helpers/Users");
 // Create a Router App.
 const app = express.Router();
 
@@ -59,6 +62,16 @@ app.post("/register", (req, res) => {
     typeof Role === "string"
   ) {
     // User input is right.
+    // Call the registration function.
+    if (RegisterNewUser(Username, Password, Name, Email, Role)) {
+      res.status(201).json({
+        Message: "User Created Successfully."
+      });
+    } else {
+      res.status(409).json({
+        Error: "Username already exists."
+      });
+    }
   } else {
     // User input is wrong.
     res.status(400).json({
