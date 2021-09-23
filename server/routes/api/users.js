@@ -15,20 +15,31 @@ const AllUsers = Object.keys(AllUsersObject).map(Username => {
 });
 
 // List all the users endpoint.
-// WARNING: PROTECT THIS ROUTE.
 app.get("/", (req, res) => {
-  res.json(AllUsers);
+  if (req.session.CurrentUser) {
+    res.json(AllUsers);
+  } else {
+    res.status(400).json({
+      Error: "Not Logged In."
+    });
+  }
 });
 
 // Get one single user.
 app.get("/:Username", (req, res) => {
-  const Username = req.params.Username;
-  const User = AllUsers.find(user => user.Username === Username);
-  if (User) {
-    res.json(User);
+  if (req.session.CurrentUser) {
+    const Username = req.params.Username;
+    const User = AllUsers.find(user => user.Username === Username);
+    if (User) {
+      res.json(User);
+    } else {
+      res.status(404).json({
+        Error: "No such user exists."
+      });
+    }
   } else {
-    res.status(404).json({
-      Error: "No such user exists."
+    res.status(400).json({
+      Error: "Not Logged In."
     });
   }
 });
