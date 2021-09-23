@@ -1,7 +1,10 @@
+const fs = require("fs");
 // Temporary Users Data.
-const Users = require("../constants/Users.json");
+const ReadUsers = () => fs.readFileSync(__dirname + "/../constants/Users.json");
 
 const CheckUserNamePassword = (Username, Password) => {
+  // Load the users from file.
+  const Users = JSON.parse(ReadUsers().toString());
   // Convert all the usernames into lowercase.
   Username = Username.toLowerCase();
   // Check if the user exists or not.
@@ -22,6 +25,8 @@ const CheckUserNamePassword = (Username, Password) => {
 };
 
 const RegisterNewUser = (Username, Password, Name, Email, Role) => {
+  // Load the users from file.
+  const Users = JSON.parse(ReadUsers().toString());
   // Convert all the usernames into lowercase.
   Username = Username.toLowerCase();
   // Create a Default user template.
@@ -53,6 +58,11 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
     // User doesn't exist.
     // Add the new user to the data.
     Users[Username] = NewUser;
+    // Once changing something in the Users object, make it permanent.
+    fs.writeFileSync(
+      __dirname + "/../constants/Users.json",
+      JSON.stringify(Users)
+    );
     return true;
   } else {
     // User already exists.
@@ -60,7 +70,7 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
   }
 };
 
-const ListAllUsers = () => Users;
+const ListAllUsers = () => JSON.parse(ReadUsers().toString());
 
 module.exports = {
   CheckUserNamePassword,

@@ -4,20 +4,23 @@ const { ListAllUsers } = require("../../helpers/Users");
 const app = express.Router();
 
 // All users without password!
-const AllUsersObject = ListAllUsers();
-const AllUsers = Object.keys(AllUsersObject).map(Username => {
-  const CurUser = {
-    Username,
-    ...AllUsersObject[Username]
-  };
-  delete CurUser.Password;
-  return CurUser;
-});
+const AllUsers = () => {
+  const AllUsersObject = ListAllUsers();
+  const AllUsersArray = Object.keys(AllUsersObject).map(Username => {
+    const CurUser = {
+      Username,
+      ...AllUsersObject[Username]
+    };
+    delete CurUser.Password;
+    return CurUser;
+  });
+  return AllUsersArray;
+};
 
 // List all the users endpoint.
 app.get("/", (req, res) => {
   if (req.session.CurrentUser) {
-    res.json(AllUsers);
+    res.json(AllUsers());
   } else {
     res.status(400).json({
       Error: "Not Logged In."
@@ -29,7 +32,7 @@ app.get("/", (req, res) => {
 app.get("/:Username", (req, res) => {
   if (req.session.CurrentUser) {
     const Username = req.params.Username.toLowerCase();
-    const User = AllUsers.find(user => user.Username === Username);
+    const User = AllUsers().find(user => user.Username === Username);
     if (User) {
       res.json(User);
     } else {
