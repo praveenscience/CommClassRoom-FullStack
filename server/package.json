@@ -4,7 +4,7 @@
   "description": "This is the server side of Community Classroom.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "nodemon --ignore constants/ server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
