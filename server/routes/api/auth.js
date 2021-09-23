@@ -7,12 +7,10 @@ const {
 // Create a Router App.
 const app = express.Router();
 
-let CurrentUser = null;
-
 // Endpoint to check current logged in user.
 app.get("/login", (req, res) => {
-  if (CurrentUser) {
-    res.json(CurrentUser);
+  if (req.session.CurrentUser) {
+    res.json(req.session.CurrentUser);
   } else {
     res.status(400).json({
       Error: "Not Logged In."
@@ -32,17 +30,17 @@ app.post("/login", (req, res) => {
         res.status(404).json({
           Error: "User does not exist."
         });
-        CurrentUser = null;
+        req.session.CurrentUser = null;
         break;
       case -1:
         res.status(400).json({
           Error: "Invalid username or password."
         });
-        CurrentUser = null;
+        req.session.CurrentUser = null;
         break;
       default:
-        CurrentUser = CheckUserNamePassword(Username, Password);
-        res.json(CurrentUser);
+        req.session.CurrentUser = CheckUserNamePassword(Username, Password);
+        res.json(req.session.CurrentUser);
     }
   } else {
     res.status(400).json({
@@ -82,7 +80,7 @@ app.post("/register", (req, res) => {
 
 // Endpoint to logout a user.
 app.post("/logout", (req, res) => {
-  CurrentUser = null;
+  req.session.CurrentUser = null;
   res.status(204).json({
     Message: "User logged out successfully."
   });
