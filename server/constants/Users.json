@@ -1,5 +1,5 @@
 {
-  "Praveen": {
+  "praveen": {
     "Name": "Praveen Kumar Purushothaman",
     "Password": "Praveen",
     "Role": "Admin",
@@ -22,7 +22,7 @@
     },
     "CreatedAt": "2021-09-21T16:05:00.343Z"
   },
-  "Rohan": {
+  "rohan": {
     "Name": "Rohan Kulkarni",
     "Password": "Rohan",
     "Role": "Student",

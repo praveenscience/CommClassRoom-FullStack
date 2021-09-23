@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 // Get one single user.
 app.get("/:Username", (req, res) => {
   if (req.session.CurrentUser) {
-    const Username = req.params.Username;
+    const Username = req.params.Username.toLowerCase();
     const User = AllUsers.find(user => user.Username === Username);
     if (User) {
       res.json(User);

@@ -2,6 +2,8 @@
 const Users = require("../constants/Users.json");
 
 const CheckUserNamePassword = (Username, Password) => {
+  // Convert all the usernames into lowercase.
+  Username = Username.toLowerCase();
   // Check if the user exists or not.
   if (typeof Users[Username] !== "undefined") {
     // User exists.
@@ -20,6 +22,8 @@ const CheckUserNamePassword = (Username, Password) => {
 };
 
 const RegisterNewUser = (Username, Password, Name, Email, Role) => {
+  // Convert all the usernames into lowercase.
+  Username = Username.toLowerCase();
   // Create a Default user template.
   const NewUser = {
     Name,
