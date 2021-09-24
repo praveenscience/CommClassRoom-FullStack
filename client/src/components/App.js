@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import Header from "./Bootstrap/Header";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Community Classroom lies here...</h1>
+        <Header className="justify-content-center" dark={true}>
+          Community Classroom
+        </Header>
       </div>
     );
   }
