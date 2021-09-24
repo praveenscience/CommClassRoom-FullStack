@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 
 // Create a session config object.
 const SessionConfig = {
-  secret: "c0mmun!7y cl@ssr00m",
+  secret: "c0mmun!7y Cl@ssr00m",
   resave: false,
   saveUninitialized: true,
   cookie: {}
