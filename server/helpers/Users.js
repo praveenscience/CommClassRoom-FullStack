@@ -1,12 +1,19 @@
 const fs = require("fs");
+const md5 = require("md5");
+const Salt = require("../constants/salt.json");
 // Temporary Users Data.
 const ReadUsers = () => fs.readFileSync(__dirname + "/../constants/Users.json");
+
+// Create a hashing function.
+const HashPwd = Password => md5(Salt + Password);
 
 const CheckUserNamePassword = (Username, Password) => {
   // Load the users from file.
   const Users = JSON.parse(ReadUsers().toString());
   // Convert all the usernames into lowercase.
   Username = Username.toLowerCase();
+  // Hash the password with the salt.
+  Password = HashPwd(Password);
   // Check if the user exists or not.
   if (typeof Users[Username] !== "undefined") {
     // User exists.
@@ -29,6 +36,8 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
   const Users = JSON.parse(ReadUsers().toString());
   // Convert all the usernames into lowercase.
   Username = Username.toLowerCase();
+  // Hash the password with the salt.
+  Password = HashPwd(Password);
   // Create a Default user template.
   const NewUser = {
     Name,
