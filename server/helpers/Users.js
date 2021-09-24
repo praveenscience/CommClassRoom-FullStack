@@ -20,7 +20,10 @@ const CheckUserNamePassword = (Username, Password) => {
     // Check if password is right or wrong.
     if (Users[Username].Password === Password) {
       // Correct Username and Password.
-      return Users[Username];
+      // Remove the password and send the user object.
+      const User = { ...Users[Username] };
+      delete User.Password;
+      return User;
     } else {
       // Wrong Username and Password.
       return -1;
