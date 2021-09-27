@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Card from "./Bootstrap/Card";
 import Header from "./Bootstrap/Header";
 import Login from "./Home/Login";
 import Register from "./Home/Register";
@@ -13,10 +14,10 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <Login />
+              <Login Card={Card} />
             </div>
             <div className="col-6">
-              <Register />
+              <Register Card={Card} />
             </div>
           </div>
         </div>
