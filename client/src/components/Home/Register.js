@@ -1,4 +1,4 @@
-const Register = ({ Card }) => {
+const Register = ({ Card, Forms, Errors }) => {
   return (
     <div className="Register">
       <Card

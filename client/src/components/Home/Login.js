@@ -1,4 +1,4 @@
-const Login = ({ Card }) => {
+const Login = ({ Card, Forms, Errors }) => {
   return (
     <div className="Login">
       <Card

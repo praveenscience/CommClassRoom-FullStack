@@ -32,10 +32,18 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <Login Card={Card} />
+              <Login
+                Card={Card}
+                Forms={this.state.Forms.Login}
+                Errors={this.state.Errors.Login}
+              />
             </div>
             <div className="col-6">
-              <Register Card={Card} />
+              <Register
+                Card={Card}
+                Forms={this.state.Forms.Register}
+                Errors={this.state.Errors.Register}
+              />
             </div>
           </div>
         </div>
