@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Header from "./Bootstrap/Header";
+import Login from "./Home/Login";
+import Register from "./Home/Register";
 
 class App extends Component {
   render() {
@@ -10,8 +12,12 @@ class App extends Component {
         </Header>
         <div className="container">
           <div className="row">
-            <div className="col-6">Login</div>
-            <div className="col-6">Registration</div>
+            <div className="col-6">
+              <Login />
+            </div>
+            <div className="col-6">
+              <Register />
+            </div>
           </div>
         </div>
       </div>
