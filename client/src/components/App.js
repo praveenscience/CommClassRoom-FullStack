@@ -23,6 +23,13 @@ class App extends Component {
       Register: []
     }
   };
+  handleFormChange = (Form, Name, Value) => {
+    const Forms = { ...this.state.Forms };
+    Forms[Form][Name] = Value;
+    this.setState({
+      Forms
+    });
+  };
   render() {
     return (
       <div className="App">
@@ -34,6 +41,7 @@ class App extends Component {
             <div className="col-6">
               <Login
                 Card={Card}
+                handleFormChange={this.handleFormChange}
                 Forms={this.state.Forms.Login}
                 Errors={this.state.Errors.Login}
               />
@@ -41,6 +49,7 @@ class App extends Component {
             <div className="col-6">
               <Register
                 Card={Card}
+                handleFormChange={this.handleFormChange}
                 Forms={this.state.Forms.Register}
                 Errors={this.state.Errors.Register}
               />

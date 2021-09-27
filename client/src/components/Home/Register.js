@@ -16,6 +16,7 @@ const Register = ({ Card, Forms, Errors }) => {
               Type={fg === "Password" ? "password" : "text"}
               key={fg}
               Label={fg}
+              Value={Forms[fg]}
             />
           ))}
           <div className="form-group mb-3">
