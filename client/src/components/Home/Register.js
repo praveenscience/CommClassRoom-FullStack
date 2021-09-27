@@ -4,7 +4,13 @@ const Register = ({ Card }) => {
       <Card
         Header="Register"
         Text="Please use this form to register for a new account."
-      ></Card>
+      >
+        <form>
+          <button type="submit" class="btn btn-primary">
+            Register
+          </button>
+        </form>
+      </Card>
     </div>
   );
 };

@@ -4,7 +4,13 @@ const Login = ({ Card }) => {
       <Card
         Header="Login"
         Text="Please use this form if you already have an account here."
-      ></Card>
+      >
+        <form>
+          <button type="submit" class="btn btn-primary">
+            Login
+          </button>
+        </form>
+      </Card>
     </div>
   );
 };
