@@ -1,5 +1,3 @@
-import React from "react";
-
 const Header = ({ dark, children, className, pages, to, Link }) => {
   dark = !!dark ? "dark" : "light";
   return (
