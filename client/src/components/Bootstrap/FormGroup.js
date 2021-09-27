@@ -12,7 +12,7 @@ const FormGroup = ({
   Desc
 }) => {
   return (
-    <div className="form-group">
+    <div className="form-group mb-3">
       <label htmlFor={Id}>{Label}</label>
       <input
         type={Type}
