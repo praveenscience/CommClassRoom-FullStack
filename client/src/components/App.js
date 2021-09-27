@@ -14,6 +14,7 @@ class App extends Component {
       Register: {
         Username: "",
         Password: "",
+        "Confirm Password": "",
         FullName: "",
         Role: ""
       }
