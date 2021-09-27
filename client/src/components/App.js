@@ -5,6 +5,24 @@ import Login from "./Home/Login";
 import Register from "./Home/Register";
 
 class App extends Component {
+  state = {
+    Forms: {
+      Login: {
+        Username: "",
+        Password: ""
+      },
+      Register: {
+        Username: "",
+        Password: "",
+        FullName: "",
+        Role: ""
+      }
+    },
+    Errors: {
+      Login: [],
+      Register: []
+    }
+  };
   render() {
     return (
       <div className="App">
