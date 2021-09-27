@@ -8,6 +8,12 @@ class App extends Component {
         <Header className="justify-content-center" dark={true}>
           Community Classroom
         </Header>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">Login</div>
+            <div className="col-6">Registration</div>
+          </div>
+        </div>
       </div>
     );
   }
