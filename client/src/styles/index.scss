@@ -1,4 +1,9 @@
 body {
   font-family: "Gemunu Libre", sans-serif;
+  pre {
+    font-family: monospace;
+    font-weight: normal;
+    font-size: 1.2em;
+  }
   @import "App";
 }
