@@ -12,11 +12,12 @@ class App extends Component {
         Password: ""
       },
       Register: {
-        Username: "",
-        Email: "",
-        Password: "",
         FullName: "",
-        Role: ""
+        Email: "",
+        Username: "",
+        Role: "",
+        Password: "",
+        "Confirm Password": ""
       }
     },
     Errors: {

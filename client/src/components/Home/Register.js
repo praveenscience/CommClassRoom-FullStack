@@ -55,6 +55,7 @@ const Register = ({
               !(
                 Forms.Username.trim().length > 3 &&
                 Forms.Password.trim().length > 3 &&
+                Forms.Password === Forms.ConfPass &&
                 Forms.FullName.trim().length > 3 &&
                 Forms.Role.trim().length > 5
               )
