@@ -40,12 +40,23 @@ const Register = ({
               value={Forms.Role}
               aria-label="Select your Role"
             >
-              <option value=""></option>
+              <option value="" disabled></option>
               <option value="Student">Student</option>
               <option value="Mentor">Mentor</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            disabled={
+              !(
+                Forms.Username.trim().length > 3 &&
+                Forms.Password.trim().length > 3 &&
+                Forms.FullName.trim().length > 3 &&
+                Forms.Role.trim().length > 5
+              )
+            }
+          >
             Register
           </button>
         </form>

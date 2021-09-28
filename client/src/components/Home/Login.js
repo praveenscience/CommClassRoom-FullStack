@@ -20,7 +20,16 @@ const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
               Value={Forms[fg]}
             />
           ))}
-          <button type="submit" class="btn btn-primary">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            disabled={
+              !(
+                Forms.Username.trim().length > 3 &&
+                Forms.Password.trim().length > 3
+              )
+            }
+          >
             Login
           </button>
         </form>
