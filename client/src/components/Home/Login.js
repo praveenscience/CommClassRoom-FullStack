@@ -11,6 +11,9 @@ const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
         Header="Login"
         Text="Please use this form if you already have an account here."
       >
+        {Errors.length > 0 && (
+          <div className="alert alert-danger">{Errors}</div>
+        )}
         <form onChange={handleChange} onSubmit={handleFormSubmit}>
           {Object.keys(Forms).map(fg => (
             <FormGroup
