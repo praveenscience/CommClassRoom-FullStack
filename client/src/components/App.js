@@ -113,28 +113,37 @@ class App extends Component {
           Community Classroom
         </Header>
         <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <Login
-                Card={Card}
-                handleFormChange={this.handleFormChange}
-                Forms={this.state.Forms.Login}
-                Errors={this.state.Errors.Login}
-                Successes={this.state.Successes.Login}
-                handleFormSubmit={this.handleLogin}
-              />
+          {this.state.User ? (
+            <Card Title={`Welcome ${this.state.User.Name}`}>
+              Welcome to Community Classroom.{" "}
+              {this.state.User.Verified
+                ? "Thanks for verifying and becoming a full user."
+                : "Please verify your account as soon as possible, check your email for further information."}
+            </Card>
+          ) : (
+            <div className="row">
+              <div className="col-6">
+                <Login
+                  Card={Card}
+                  handleFormChange={this.handleFormChange}
+                  Forms={this.state.Forms.Login}
+                  Errors={this.state.Errors.Login}
+                  Successes={this.state.Successes.Login}
+                  handleFormSubmit={this.handleLogin}
+                />
+              </div>
+              <div className="col-6">
+                <Register
+                  Card={Card}
+                  handleFormChange={this.handleFormChange}
+                  Forms={this.state.Forms.Register}
+                  Errors={this.state.Errors.Register}
+                  Successes={this.state.Successes.Register}
+                  handleFormSubmit={this.handleRegister}
+                />
+              </div>
             </div>
-            <div className="col-6">
-              <Register
-                Card={Card}
-                handleFormChange={this.handleFormChange}
-                Forms={this.state.Forms.Register}
-                Errors={this.state.Errors.Register}
-                Successes={this.state.Successes.Register}
-                handleFormSubmit={this.handleRegister}
-              />
-            </div>
-          </div>
+          )}
           <div className="row">
             <div className="col-12">
               <pre className="mt-3 bg-black bg-opacity-10 border rounded p-3">
