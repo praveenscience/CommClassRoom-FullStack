@@ -13,6 +13,7 @@ class App extends Component {
       },
       Register: {
         Username: "",
+        Email: "",
         Password: "",
         FullName: "",
         Role: ""
