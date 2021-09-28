@@ -34,11 +34,14 @@ class App extends Component {
   };
   handleLogin = e => {
     e.preventDefault();
-    window.alert("Called Login Button!");
+    const { Username, Password } = this.state.Forms.Login;
+    console.log({ Username, Password });
   };
   handleRegister = e => {
     e.preventDefault();
-    window.alert("Called Registration Button!");
+    const { Username, Email, Password, FullName, Role } =
+      this.state.Forms.Register;
+    console.log({ Username, Email, Password, FullName, Role });
   };
   render() {
     return (
