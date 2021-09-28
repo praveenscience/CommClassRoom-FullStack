@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { LoginUser } from "../services/Auth";
+import { LoginUser, RegisterUser } from "../services/Auth";
 import Card from "./Bootstrap/Card";
 import Header from "./Bootstrap/Header";
 import Login from "./Home/Login";
@@ -53,9 +53,22 @@ class App extends Component {
   };
   handleRegister = e => {
     e.preventDefault();
+    const Errors = { ...this.state.Errors };
+    Errors.Register = [];
+    this.setState({
+      Errors
+    });
     const { Username, Email, Password, FullName, Role } =
       this.state.Forms.Register;
-    console.log({ Username, Email, Password, FullName, Role });
+    RegisterUser(Username, Password, FullName, Email, Role)
+      .then(res => console.log(res.data))
+      .catch(err => {
+        const Errors = { ...this.state.Errors };
+        Errors.Register.push(err.response.data.Error);
+        this.setState({
+          Errors
+        });
+      });
   };
   render() {
     return (
