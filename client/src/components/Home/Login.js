@@ -1,6 +1,7 @@
 import FormGroup from "../Bootstrap/FormGroup";
 
 const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
+  const OnChangeDummy = () => {};
   const handleChange = e => {
     handleFormChange("Login", e.target.name, e.target.value);
   };
@@ -18,11 +19,12 @@ const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
               key={fg}
               Label={fg}
               Value={Forms[fg]}
+              onChange={OnChangeDummy}
             />
           ))}
           <button
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-primary"
             disabled={
               !(
                 Forms.Username.trim().length > 3 &&

@@ -7,6 +7,7 @@ const Register = ({
   handleFormChange,
   handleFormSubmit
 }) => {
+  const OnChangeDummy = () => {};
   const FormElements = { ...Forms };
   delete FormElements.Role;
   const handleChange = e => {
@@ -30,15 +31,17 @@ const Register = ({
               key={fg}
               Label={fg}
               Value={Forms[fg]}
+              onChange={OnChangeDummy}
             />
           ))}
           <div className="form-group mb-3">
             <label htmlFor="Role">Role</label>
             <select
-              class="form-select"
+              className="form-select"
               name="Role"
               value={Forms.Role}
               aria-label="Select your Role"
+              onChange={OnChangeDummy}
             >
               <option value="" disabled></option>
               <option value="Student">Student</option>
@@ -47,7 +50,7 @@ const Register = ({
           </div>
           <button
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-primary"
             disabled={
               !(
                 Forms.Username.trim().length > 3 &&
