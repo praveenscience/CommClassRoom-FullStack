@@ -1,6 +1,13 @@
 import FormGroup from "../Bootstrap/FormGroup";
 
-const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
+const Login = ({
+  Card,
+  Forms,
+  Errors,
+  Successes,
+  handleFormChange,
+  handleFormSubmit
+}) => {
   const OnChangeDummy = () => {};
   const handleChange = e => {
     handleFormChange("Login", e.target.name, e.target.value);
@@ -11,6 +18,9 @@ const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
         Header="Login"
         Text="Please use this form if you already have an account here."
       >
+        {Successes.length > 0 && (
+          <div className="alert alert-success">{Successes}</div>
+        )}
         {Errors.length > 0 && (
           <div className="alert alert-danger">{Errors}</div>
         )}

@@ -24,6 +24,10 @@ class App extends Component {
     Errors: {
       Login: [],
       Register: []
+    },
+    Successes: {
+      Login: [],
+      Register: []
     }
   };
   handleFormChange = (Form, Name, Value) => {
@@ -36,13 +40,24 @@ class App extends Component {
   handleLogin = e => {
     e.preventDefault();
     const Errors = { ...this.state.Errors };
+    const Successes = { ...this.state.Successes };
     Errors.Login = [];
+    Successes.Login = [];
     this.setState({
-      Errors
+      Errors,
+      Successes
     });
     const { Username, Password } = this.state.Forms.Login;
     LoginUser(Username, Password)
-      .then(res => console.log(res.data))
+      .then(res => {
+        const Successes = { ...this.state.Successes };
+        Successes.Login.push(
+          "User logged in Successfully! Taking you to the dashboard..."
+        );
+        this.setState({
+          Successes
+        });
+      })
       .catch(err => {
         const Errors = { ...this.state.Errors };
         Errors.Login.push(err.response.data.Error);
@@ -85,6 +100,7 @@ class App extends Component {
                 Forms={this.state.Forms.Login}
                 Errors={this.state.Errors.Login}
                 handleFormSubmit={this.handleLogin}
+                Successes={this.state.Successes.Login}
               />
             </div>
             <div className="col-6">
