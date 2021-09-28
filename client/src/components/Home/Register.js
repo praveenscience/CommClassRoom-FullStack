@@ -23,6 +23,9 @@ const Register = ({
         Header="Register"
         Text="Please use this form to register for a new account."
       >
+        {Errors.length > 0 && (
+          <div className="alert alert-danger">{Errors}</div>
+        )}
         <form onChange={handleChange} onSubmit={handleFormSubmit}>
           {Object.keys(FormElements).map(fg => (
             <FormGroup
