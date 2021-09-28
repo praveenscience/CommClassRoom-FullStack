@@ -51,12 +51,14 @@ class App extends Component {
     LoginUser(Username, Password)
       .then(res => {
         const Successes = { ...this.state.Successes };
-        Successes.Login.push(
-          "User logged in Successfully! Taking you to the dashboard..."
-        );
-        this.setState({
-          Successes
-        });
+        if (res.status === 200) {
+          Successes.Login.push(
+            "User logged in Successfully! Taking you to the dashboard..."
+          );
+          this.setState({
+            Successes
+          });
+        }
       })
       .catch(err => {
         const Errors = { ...this.state.Errors };
