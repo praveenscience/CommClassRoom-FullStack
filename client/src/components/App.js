@@ -31,9 +31,10 @@ const InitState = {
   }
 };
 class App extends Component {
-  state = InitState;
+  state = { ...InitState };
   handleFormChange = (Form, Name, Value) => {
     const Forms = { ...this.state.Forms };
+    Forms[Form] = { ...this.state.Forms[Form] };
     Forms[Form][Name] = Value;
     this.setState({
       Forms
@@ -110,7 +111,7 @@ class App extends Component {
   handleLogout = e => {
     e.preventDefault();
     LogoutUser().then(() => {
-      this.setState(InitState);
+      this.setState({ ...InitState });
     });
   };
   render() {
