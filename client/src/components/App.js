@@ -157,13 +157,6 @@ class App extends Component {
               </div>
             </div>
           )}
-          <div className="row">
-            <div className="col-12">
-              <pre className="mt-3 bg-black bg-opacity-10 border rounded p-3">
-                {JSON.stringify(this.state, null, 2)}
-              </pre>
-            </div>
-          </div>
         </div>
       </div>
     );
