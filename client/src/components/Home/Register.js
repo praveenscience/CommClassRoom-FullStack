@@ -1,6 +1,12 @@
 import FormGroup from "../Bootstrap/FormGroup";
 
-const Register = ({ Card, Forms, Errors, handleFormChange }) => {
+const Register = ({
+  Card,
+  Forms,
+  Errors,
+  handleFormChange,
+  handleFormSubmit
+}) => {
   const FormElements = { ...Forms };
   delete FormElements.Role;
   const handleChange = e => {
@@ -16,7 +22,7 @@ const Register = ({ Card, Forms, Errors, handleFormChange }) => {
         Header="Register"
         Text="Please use this form to register for a new account."
       >
-        <form onChange={handleChange}>
+        <form onChange={handleChange} onSubmit={handleFormSubmit}>
           {Object.keys(FormElements).map(fg => (
             <FormGroup
               Id={"Reg" + fg}

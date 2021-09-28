@@ -34,7 +34,7 @@ class App extends Component {
     e.preventDefault();
     window.alert("Called Login Button!");
   };
-  handleRegistration = e => {
+  handleRegister = e => {
     e.preventDefault();
     window.alert("Called Registration Button!");
   };
@@ -52,6 +52,7 @@ class App extends Component {
                 handleFormChange={this.handleFormChange}
                 Forms={this.state.Forms.Login}
                 Errors={this.state.Errors.Login}
+                handleFormSubmit={this.handleLogin}
               />
             </div>
             <div className="col-6">
@@ -60,6 +61,7 @@ class App extends Component {
                 handleFormChange={this.handleFormChange}
                 Forms={this.state.Forms.Register}
                 Errors={this.state.Errors.Register}
+                handleFormSubmit={this.handleRegister}
               />
             </div>
           </div>

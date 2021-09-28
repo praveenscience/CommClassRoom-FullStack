@@ -1,6 +1,6 @@
 import FormGroup from "../Bootstrap/FormGroup";
 
-const Login = ({ Card, Forms, Errors, handleFormChange }) => {
+const Login = ({ Card, Forms, Errors, handleFormChange, handleFormSubmit }) => {
   const handleChange = e => {
     handleFormChange("Login", e.target.name, e.target.value);
   };
@@ -10,7 +10,7 @@ const Login = ({ Card, Forms, Errors, handleFormChange }) => {
         Header="Login"
         Text="Please use this form if you already have an account here."
       >
-        <form onChange={handleChange}>
+        <form onChange={handleChange} onSubmit={handleFormSubmit}>
           {Object.keys(Forms).map(fg => (
             <FormGroup
               Id={fg}
