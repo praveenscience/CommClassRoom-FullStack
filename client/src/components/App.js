@@ -72,13 +72,22 @@ class App extends Component {
     e.preventDefault();
     const Errors = { ...this.state.Errors };
     Errors.Register = [];
+    const Successes = { ...this.state.Successes };
+    Successes.Register = [];
     this.setState({
-      Errors
+      Errors,
+      Successes
     });
     const { Username, Email, Password, FullName, Role } =
       this.state.Forms.Register;
     RegisterUser(Username, Password, FullName, Email, Role)
-      .then(res => console.log(res.data))
+      .then(res => {
+        const Successes = { ...this.state.Successes };
+        Successes.Register.push(res.data.Message);
+        this.setState({
+          Successes
+        });
+      })
       .catch(err => {
         const Errors = { ...this.state.Errors };
         Errors.Register.push(err.response.data.Error);
@@ -101,8 +110,8 @@ class App extends Component {
                 handleFormChange={this.handleFormChange}
                 Forms={this.state.Forms.Login}
                 Errors={this.state.Errors.Login}
-                handleFormSubmit={this.handleLogin}
                 Successes={this.state.Successes.Login}
+                handleFormSubmit={this.handleLogin}
               />
             </div>
             <div className="col-6">
@@ -111,6 +120,7 @@ class App extends Component {
                 handleFormChange={this.handleFormChange}
                 Forms={this.state.Forms.Register}
                 Errors={this.state.Errors.Register}
+                Successes={this.state.Successes.Register}
                 handleFormSubmit={this.handleRegister}
               />
             </div>

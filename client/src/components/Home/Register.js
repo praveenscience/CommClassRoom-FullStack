@@ -4,6 +4,7 @@ const Register = ({
   Card,
   Forms,
   Errors,
+  Successes,
   handleFormChange,
   handleFormSubmit
 }) => {
@@ -23,6 +24,9 @@ const Register = ({
         Header="Register"
         Text="Please use this form to register for a new account."
       >
+        {Successes.length > 0 && (
+          <div className="alert alert-success">{Successes}</div>
+        )}
         {Errors.length > 0 && (
           <div className="alert alert-danger">{Errors}</div>
         )}
