@@ -27,7 +27,7 @@ const Register = ({
           {Object.keys(FormElements).map(fg => (
             <FormGroup
               Id={"Reg" + fg}
-              Type={fg === "Password" ? "password" : "text"}
+              Type={fg.indexOf("Password") > -1 ? "password" : "text"}
               key={fg}
               Label={fg}
               Value={Forms[fg]}
@@ -55,7 +55,7 @@ const Register = ({
               !(
                 Forms.Username.trim().length > 3 &&
                 Forms.Password.trim().length > 3 &&
-                Forms.Password === Forms.ConfPass &&
+                Forms.Password === Forms["Confirm Password"] &&
                 Forms.FullName.trim().length > 3 &&
                 Forms.Role.trim().length > 5
               )
