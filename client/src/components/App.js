@@ -7,6 +7,7 @@ import Register from "./Home/Register";
 
 class App extends Component {
   state = {
+    User: null,
     Forms: {
       Login: {
         Username: "",
@@ -55,9 +56,18 @@ class App extends Component {
           Successes.Login.push(
             "User logged in Successfully! Taking you to the dashboard..."
           );
-          this.setState({
-            Successes
-          });
+          this.setState(
+            {
+              Successes
+            },
+            () => {
+              setTimeout(() => {
+                this.setState({
+                  User: res.data
+                });
+              }, 2000);
+            }
+          );
         }
       })
       .catch(err => {
