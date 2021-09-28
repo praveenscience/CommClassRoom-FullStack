@@ -30,6 +30,14 @@ class App extends Component {
       Forms
     });
   };
+  handleLogin = e => {
+    e.preventDefault();
+    window.alert("Called Login Button!");
+  };
+  handleRegistration = e => {
+    e.preventDefault();
+    window.alert("Called Registration Button!");
+  };
   render() {
     return (
       <div className="App">
