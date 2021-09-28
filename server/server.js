@@ -2,6 +2,8 @@
 const express = require("express");
 // Import Sessions.
 const session = require("express-session");
+// Import Morgan.
+const morgan = require("morgan");
 // Initialising an app instance.
 const app = express();
 // Configure a port address.
@@ -12,6 +14,7 @@ const root = require("./routes/root");
 // Add some custom middleware.
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(morgan("dev"));
 
 // Create a session config object.
 const SessionConfig = {
