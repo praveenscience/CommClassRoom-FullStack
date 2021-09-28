@@ -1,36 +1,37 @@
 import { Component } from "react";
-import { LoginUser, RegisterUser } from "../services/Auth";
+import { LoginUser, LogoutUser, RegisterUser } from "../services/Auth";
 import Card from "./Bootstrap/Card";
 import Header from "./Bootstrap/Header";
 import Login from "./Home/Login";
 import Register from "./Home/Register";
 
-class App extends Component {
-  state = {
-    User: null,
-    Forms: {
-      Login: {
-        Username: "",
-        Password: ""
-      },
-      Register: {
-        FullName: "",
-        Email: "",
-        Username: "",
-        Role: "",
-        Password: "",
-        "Confirm Password": ""
-      }
+const InitState = {
+  User: null,
+  Forms: {
+    Login: {
+      Username: "",
+      Password: ""
     },
-    Errors: {
-      Login: [],
-      Register: []
-    },
-    Successes: {
-      Login: [],
-      Register: []
+    Register: {
+      FullName: "",
+      Email: "",
+      Username: "",
+      Role: "",
+      Password: "",
+      "Confirm Password": ""
     }
-  };
+  },
+  Errors: {
+    Login: [],
+    Register: []
+  },
+  Successes: {
+    Login: [],
+    Register: []
+  }
+};
+class App extends Component {
+  state = InitState;
   handleFormChange = (Form, Name, Value) => {
     const Forms = { ...this.state.Forms };
     Forms[Form][Name] = Value;
@@ -106,6 +107,12 @@ class App extends Component {
         });
       });
   };
+  handleLogout = e => {
+    e.preventDefault();
+    LogoutUser().then(() => {
+      this.setState(InitState);
+    });
+  };
   render() {
     return (
       <div className="App">
@@ -115,10 +122,15 @@ class App extends Component {
         <div className="container">
           {this.state.User ? (
             <Card Title={`Welcome ${this.state.User.Name}`}>
-              Welcome to Community Classroom.{" "}
-              {this.state.User.Verified
-                ? "Thanks for verifying and becoming a full user."
-                : "Please verify your account as soon as possible, check your email for further information."}
+              <p>
+                Welcome to Community Classroom.{" "}
+                {this.state.User.Verified
+                  ? "Thanks for verifying and becoming a full user."
+                  : "Please verify your account as soon as possible, check your email for further information."}
+              </p>
+              <button className="btn btn-danger" onClick={this.handleLogout}>
+                Logout
+              </button>
             </Card>
           ) : (
             <div className="row">
