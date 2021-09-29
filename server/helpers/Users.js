@@ -91,6 +91,8 @@ const ListAllUsers = () => JSON.parse(ReadUsers().toString());
 // 0 => User found, but code wrong or already verified.
 // -1 => User not found.
 const VerifyUser = (Username, Code) => {
+  // Load the users from file.
+  const Users = JSON.parse(ReadUsers().toString());
   // Check if the user exists or not.
   if (typeof Users[Username] !== "undefined") {
     if (Users[Username].VerifyHash === Code) {
