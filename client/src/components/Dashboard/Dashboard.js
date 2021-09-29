@@ -4,8 +4,8 @@ const Dashboard = ({ Card, handleLogout, User }) => {
       <p>
         Welcome to Community Classroom.{" "}
         {User.VerifyHash
-          ? "Thanks for verifying and becoming a full user."
-          : "Please verify your account as soon as possible, check your email for further information."}
+          ? "Please verify your account as soon as possible, check your email for further information."
+          : "Thanks for verifying and becoming a full user."}
       </p>
       <button className="btn btn-danger" onClick={handleLogout}>
         Logout
