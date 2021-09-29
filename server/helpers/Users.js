@@ -87,8 +87,32 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
 
 const ListAllUsers = () => JSON.parse(ReadUsers().toString());
 
+// 1 => Success.
+// 0 => User found, but code wrong or already verified.
+// -1 => User not found.
+const VerifyUser = (Username, Code) => {
+  // Check if the user exists or not.
+  if (typeof Users[Username] !== "undefined") {
+    if (Users[Username].VerifyHash === Code) {
+      // Delete the verification hash.
+      Users[Username].VerifyHash = null;
+      // Once changing something in the Users object, make it permanent.
+      fs.writeFileSync(
+        __dirname + "/../constants/Users.json",
+        JSON.stringify(Users)
+      );
+      return 1;
+    } else {
+      return 0;
+    }
+  } else {
+    return -1;
+  }
+};
+
 module.exports = {
   CheckUserNamePassword,
   RegisterNewUser,
-  ListAllUsers
+  ListAllUsers,
+  VerifyUser
 };
