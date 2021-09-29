@@ -2,11 +2,34 @@
 const express = require("express");
 const {
   CheckUserNamePassword,
-  RegisterNewUser
+  RegisterNewUser,
+  VerifyUser
 } = require("../../helpers/Users");
 // Create a Router App.
 const app = express.Router();
 
+// Endpoint to Verify a User.
+app.get("/verify/:Username", (req, res) => {
+  const Username = req.params.Username;
+  const Code = req.query.Code;
+  switch (VerifyUser(Username, Code)) {
+    case -1:
+      res.status(404).json({
+        Error: "User not found."
+      });
+      break;
+    case 0:
+      res.status(400).json({
+        Error: "Invalid code or user has already been verified."
+      });
+      break;
+    case 1:
+      res.json({
+        Message: "User successfully verified."
+      });
+      break;
+  }
+});
 // Endpoint to check current logged in user.
 app.get("/login", (req, res) => {
   if (req.session.CurrentUser) {
