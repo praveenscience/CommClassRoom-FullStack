@@ -23,6 +23,9 @@ const CheckUserNamePassword = (Username, Password) => {
       // Remove the password and send the user object.
       const User = { ...Users[Username] };
       delete User.Password;
+      if (User.VerifyHash) {
+        User.VerifyHash = true;
+      }
       return User;
     } else {
       // Wrong Username and Password.
@@ -46,7 +49,7 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
     Name,
     Password,
     Role,
-    Verified: false,
+    VerifyHash: HashPwd(new Date().getTime()),
     Personal: {
       Gender: null,
       Email,

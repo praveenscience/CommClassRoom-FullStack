@@ -3,7 +3,7 @@ const Dashboard = ({ Card, handleLogout, User }) => {
     <Card Title={`Welcome ${User.Name}`}>
       <p>
         Welcome to Community Classroom.{" "}
-        {User.Verified
+        {User.VerifyHash
           ? "Thanks for verifying and becoming a full user."
           : "Please verify your account as soon as possible, check your email for further information."}
       </p>

@@ -12,6 +12,9 @@ const AllUsers = () => {
       ...AllUsersObject[Username]
     };
     delete CurUser.Password;
+    if (CurUser.VerifyHash) {
+      CurUser.VerifyHash = true;
+    }
     return CurUser;
   });
   return AllUsersArray;
