@@ -2,6 +2,7 @@ import { Component } from "react";
 import { LoginUser, LogoutUser, RegisterUser } from "../services/Auth";
 import Card from "./Bootstrap/Card";
 import Header from "./Bootstrap/Header";
+import Dashboard from "./Dashboard/Dashboard";
 import Login from "./Home/Login";
 import Register from "./Home/Register";
 
@@ -122,17 +123,11 @@ class App extends Component {
         </Header>
         <div className="container">
           {this.state.User ? (
-            <Card Title={`Welcome ${this.state.User.Name}`}>
-              <p>
-                Welcome to Community Classroom.{" "}
-                {this.state.User.Verified
-                  ? "Thanks for verifying and becoming a full user."
-                  : "Please verify your account as soon as possible, check your email for further information."}
-              </p>
-              <button className="btn btn-danger" onClick={this.handleLogout}>
-                Logout
-              </button>
-            </Card>
+            <Dashboard
+              handleLogout={this.handleLogout}
+              Card={Card}
+              User={this.state.User}
+            />
           ) : (
             <div className="row">
               <div className="col-6">
