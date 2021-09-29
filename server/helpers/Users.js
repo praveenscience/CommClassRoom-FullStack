@@ -26,7 +26,7 @@ const CheckUserNamePassword = (Username, Password) => {
       if (User.VerifyHash) {
         User.VerifyHash = true;
       }
-      return User;
+      return { ...User, Username };
     } else {
       // Wrong Username and Password.
       return -1;
