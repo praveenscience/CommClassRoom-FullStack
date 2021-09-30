@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { VerifyUser } from "../../services/Auth";
 import FormGroup from "../Bootstrap/FormGroup";
+import ProfileCompleteness from "./_ProfileCompleteness";
 import VerifiedUserSection from "./_VerifiedUserSection";
 import VerifyUserSection from "./_VerifyUserSection";
 
@@ -26,24 +27,33 @@ const Dashboard = ({ Card, handleLogout, User }) => {
   };
   return (
     <Card Title={`Welcome ${User.Name}`}>
-      <p>Welcome to Community Classroom.</p>
-      {User.VerifyHash ? (
-        <VerifyUserSection
-          {...{
-            Output,
-            User,
-            handleVerifyUser,
-            FormGroup,
-            Code,
-            setCode
-          }}
-        />
-      ) : (
-        <VerifiedUserSection User={User} />
-      )}
-      <button className="btn btn-danger" onClick={handleLogout}>
-        Logout
-      </button>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-md-6 col-lg-8 col-xl-9">
+            <p>Welcome to Community Classroom.</p>
+            {User.VerifyHash ? (
+              <VerifyUserSection
+                {...{
+                  Output,
+                  User,
+                  handleVerifyUser,
+                  FormGroup,
+                  Code,
+                  setCode
+                }}
+              />
+            ) : (
+              <VerifiedUserSection />
+            )}
+            <button className="btn btn-danger" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+            <ProfileCompleteness User={User} />
+          </div>
+        </div>
+      </div>
     </Card>
   );
 };
