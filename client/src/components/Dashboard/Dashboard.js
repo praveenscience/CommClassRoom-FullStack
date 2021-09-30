@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { VerifyUser } from "../../services/Auth";
 import FormGroup from "../Bootstrap/FormGroup";
+import VerifiedUserSection from "./_VerifiedUserSection";
 import VerifyUserSection from "./_VerifyUserSection";
 
 const Dashboard = ({ Card, handleLogout, User }) => {
@@ -38,13 +39,7 @@ const Dashboard = ({ Card, handleLogout, User }) => {
           }}
         />
       ) : (
-        <>
-          <p>Thanks for verifying and becoming a full user.</p>
-          {(Object.values(User.Personal).filter(v => v === null).length > 0 ||
-            Object.values(User.Socials).filter(v => v === null).length > 0) && (
-            <p>Please fill in all your profile details.</p>
-          )}
-        </>
+        <VerifiedUserSection User={User} />
       )}
       <button className="btn btn-danger" onClick={handleLogout}>
         Logout
