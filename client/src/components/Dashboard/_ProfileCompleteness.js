@@ -16,10 +16,18 @@ const ProfileCompleteness = ({ User }) => {
     Socials
   };
   return (
-    <Card Header="Profile Completion So Far..." className="ProfileCompleteness">
+    <Card Header="Profile Completion" className="ProfileCompleteness">
       {Object.keys(Areas).map(progress => (
         <div className="ProgressItem mb-3">
-          <strong>{progress}</strong>
+          <strong>
+            {progress}{" "}
+            <small>
+              (
+              {((Areas[progress][0] / Areas[progress][1]) * 100).toFixed(0) +
+                "%"}{" "}
+              complete)
+            </small>
+          </strong>
           <div className="progress" key={progress}>
             <div
               className="progress-bar progress-bar-striped bg-success"
