@@ -1,4 +1,5 @@
 import Card from "../Bootstrap/Card";
+import DefaultAvatar from "../../assets/DefaultAvatar.png";
 
 const ProfileCompleteness = ({ User }) => {
   const [Personal, Socials] = [
@@ -18,6 +19,13 @@ const ProfileCompleteness = ({ User }) => {
   };
   return (
     <Card Header="Profile Completion" className="ProfileCompleteness">
+      <div className="text-center mb-4">
+        <img
+          src={User.Avatar ? User.Avatar : DefaultAvatar}
+          className="img-thumbnail rounded-circle w-50"
+          alt={User.Name}
+        />
+      </div>
       {Object.keys(Areas).map(progress => (
         <div className="ProgressItem mb-3">
           <strong>
