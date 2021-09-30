@@ -49,6 +49,7 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
     Name,
     Password,
     Role,
+    Avatar: null,
     VerifyHash: HashPwd(new Date().getTime()),
     Personal: {
       Gender: null,
