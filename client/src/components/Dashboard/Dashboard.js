@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { VerifyUser } from "../../services/Auth";
 import FormGroup from "../Bootstrap/FormGroup";
+import VerifyUserSection from "./_VerifyUserSection";
 
 const Dashboard = ({ Card, handleLogout, User }) => {
   const [Code, setCode] = useState("");
@@ -26,40 +27,16 @@ const Dashboard = ({ Card, handleLogout, User }) => {
     <Card Title={`Welcome ${User.Name}`}>
       <p>Welcome to Community Classroom.</p>
       {User.VerifyHash ? (
-        <div className="alert alert-danger">
-          <h3>Unverified Account</h3>
-          {Output && (
-            <div
-              className={
-                "alert alert-" +
-                (Output.indexOf("Error") === 0 ? "dark" : "success")
-              }
-            >
-              {Output}
-            </div>
-          )}
-          <p>
-            Please verify your account as soon as possible, check your email for
-            further information. Alternatively, if you know the Verification
-            Code, please enter here.
-          </p>
-          <form
-            action={"/api/auth/verify/" + User.Username}
-            onSubmit={handleVerifyUser}
-          >
-            <FormGroup
-              Id="Code"
-              Label="Verification Code"
-              Type="text"
-              Desc="Please enter the verification code you received in your email."
-              Value={Code}
-              onChange={e => {
-                setCode(e.target.value);
-              }}
-            />
-            <input type="submit" className="btn btn-primary" value="Verify" />
-          </form>
-        </div>
+        <VerifyUserSection
+          {...{
+            Output,
+            User,
+            handleVerifyUser,
+            FormGroup,
+            Code,
+            setCode
+          }}
+        />
       ) : (
         <>
           <p>Thanks for verifying and becoming a full user.</p>
