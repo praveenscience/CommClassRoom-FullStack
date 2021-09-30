@@ -1,0 +1,8 @@
+.ProfileCompleteness {
+  &Wrapper {
+    @media screen and (max-width: 768px) {
+      order: -1;
+      margin-bottom: 15px;
+    }
+  }
+}

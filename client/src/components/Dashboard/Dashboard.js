@@ -49,7 +49,7 @@ const Dashboard = ({ Card, handleLogout, User }) => {
               Logout
             </button>
           </div>
-          <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div className="col-12 col-md-6 col-lg-4 col-xl-3 ProfileCompletenessWrapper">
             <ProfileCompleteness User={User} />
           </div>
         </div>

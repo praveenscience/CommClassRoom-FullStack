@@ -16,7 +16,7 @@ const ProfileCompleteness = ({ User }) => {
     Socials
   };
   return (
-    <Card Header="Profile Completion So Far...">
+    <Card Header="Profile Completion So Far..." className="ProfileCompleteness">
       {Object.keys(Areas).map(progress => (
         <div className="ProgressItem mb-3">
           <strong>{progress}</strong>
