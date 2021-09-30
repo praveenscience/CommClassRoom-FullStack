@@ -3,8 +3,9 @@ import Card from "../Bootstrap/Card";
 const ProfileCompleteness = ({ User }) => {
   const [Personal, Socials] = [
     [
-      Object.values(User.Personal).filter(v => v !== null).length,
-      Object.values(User.Personal).length
+      [...Object.values(User.Personal), User.Avatar].filter(v => v !== null)
+        .length,
+      [...Object.values(User.Personal), User.Avatar].length
     ],
     [
       Object.values(User.Socials).filter(v => v !== null).length,
