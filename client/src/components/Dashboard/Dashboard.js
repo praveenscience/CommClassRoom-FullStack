@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { VerifyUser } from "../../services/Auth";
 import FormGroup from "../Bootstrap/FormGroup";
 import ProfileCompleteness from "./_ProfileCompleteness";
@@ -45,6 +46,12 @@ const Dashboard = ({ Card, handleLogout, User }) => {
             ) : (
               <VerifiedUserSection />
             )}
+            <Link
+              className="btn btn-success me-2"
+              to={"/users/" + User.Username}
+            >
+              My Profile
+            </Link>
             <button className="btn btn-danger" onClick={handleLogout}>
               Logout
             </button>
