@@ -1,14 +1,16 @@
 import { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { LoginUser, LogoutUser, RegisterUser } from "../services/Auth";
 import Card from "./Bootstrap/Card";
 import Header from "./Bootstrap/Header";
 import Dashboard from "./Dashboard/Dashboard";
 import Login from "./Home/Login";
 import Register from "./Home/Register";
+import Profile from "./Profile/Profile";
 
 const InitState = {
   User: null,
+  Users: null,
   Forms: {
     Login: {
       Username: "",
@@ -132,12 +134,10 @@ class App extends Component {
                   User={this.state.User}
                 />
               </Route>
-              <Route path="/users/:Username">
-                <p>This is User Path.</p>
-                <Link className="btn btn-success" to="/">
-                  Back to Dashboard
-                </Link>
-              </Route>
+              <Route
+                path="/users/:Username"
+                render={rp => <Profile {...rp} />}
+              />
             </Switch>
           ) : (
             <div className="row">
