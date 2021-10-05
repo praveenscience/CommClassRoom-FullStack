@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Switch, Route, Link } from "react-router-dom";
 import { LoginUser, LogoutUser, RegisterUser } from "../services/Auth";
 import Card from "./Bootstrap/Card";
 import Header from "./Bootstrap/Header";
@@ -123,11 +124,21 @@ class App extends Component {
         </Header>
         <div className="container">
           {this.state.User ? (
-            <Dashboard
-              handleLogout={this.handleLogout}
-              Card={Card}
-              User={this.state.User}
-            />
+            <Switch>
+              <Route path="/" exact={true}>
+                <Dashboard
+                  handleLogout={this.handleLogout}
+                  Card={Card}
+                  User={this.state.User}
+                />
+              </Route>
+              <Route path="/users/:Username">
+                <p>This is User Path.</p>
+                <Link className="btn btn-success" to="/">
+                  Back to Dashboard
+                </Link>
+              </Route>
+            </Switch>
           ) : (
             <div className="row">
               <div className="col-6">
