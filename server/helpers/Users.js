@@ -51,10 +51,12 @@ const RegisterNewUser = (Username, Password, Name, Email, Role) => {
     Role,
     Avatar: `https://www.gravatar.com/avatar/${md5(Email)}?s=512`,
     VerifyHash: HashPwd(new Date().getTime()),
+    Institute: null,
     Personal: {
       Gender: null,
       Email,
-      Phone: null
+      Phone: null,
+      Location: null
     },
     Socials: {
       Facebook: null,
