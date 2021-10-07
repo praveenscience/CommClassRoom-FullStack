@@ -136,7 +136,7 @@ class App extends Component {
               </Route>
               <Route
                 path="/users/:Username"
-                render={rp => <Profile {...rp} />}
+                render={rp => <Profile {...rp} Card={Card} />}
               />
             </Switch>
           ) : (
