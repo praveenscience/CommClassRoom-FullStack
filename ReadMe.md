@@ -10,9 +10,9 @@
 
 ### Installation Instructions
 
-## Features
+## Features!!!!!
 
-- Marketing Public Pages
+- Marketing Public Pages!
   - Basic Design from the Theme
 - Authenticated Dashboard Journey
   - User Dashboard
