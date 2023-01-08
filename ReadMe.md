@@ -10,7 +10,7 @@
 
 ### Installation Instructions
 
-## Features
+## Features!
 
 - Marketing Public Pages
   - Basic Design from the Theme
