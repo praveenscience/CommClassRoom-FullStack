@@ -1,6 +1,6 @@
 # Community Class Room
 
-## Intro
+## Introduction
 
 ## Motivation
 
